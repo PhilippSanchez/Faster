@@ -1,0 +1,541 @@
+
+body {
+    background-color: hsl(216, 28%, 7%);
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(194, 214, 231);
+    margin: 0;
+    width: 100%
+}
+
+.btn {
+    font-weight: 800;
+    border-radius: 8px;
+    height: 30px;
+    width: 120px;
+    transition: all 0.4s ease-in;
+}
+
+.primary-btn {
+    background-color: hsl(214, 78%, 66%);
+    border: none;
+    color: rgb(255, 255, 255);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    border: 0.5px solid hsl(214, 78%, 66%);
+    color: hsl(214, 78%, 66%);
+}
+
+button:hover {
+    color: rgb(33, 37, 63);
+    background-color: hsl(214, 100%, 89%);
+}
+
+.trenner {
+    border-right: 0.5px solid rgb(73, 73, 73);
+    grid-column-start: 8;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 13;
+    height: 100%;
+    z-index: 10;
+}
+
+
+.navigation{
+    display: grid;
+    grid-template-columns: 50px 600px repeat(3, 1fr);
+    column-gap: 10px;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 25px;
+    background-color: hsl(217, 27%, 13%);
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navigation img {
+    height: 30px;
+    margin-left: 50px;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+
+#dashboard {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    row-gap: 10px;
+    width: 95%;
+    height: 400px;
+    margin: 0 auto; 
+    background-color: hsl(220, 27%, 6%);
+    border-radius: 14px;;
+    border: 0.5px solid rgb(73, 73, 73);
+    overflow: hidden;
+}
+
+#dash-header {
+    height: 50px;
+    width: 100%;
+    padding-left: 10px;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 14;
+    text-align: left;
+    align-items: center;
+    background-color: hsl(217, 27%, 13%);
+    z-index: 20;
+}
+
+
+
+#dash-heute {
+    grid-row-start: 2;
+    grid-row-end: 13;
+    grid-column-start: 1;
+    grid-column-end: 9;
+    margin-bottom: 10px;
+    z-index: 0;
+    overflow: scroll;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.dash-subheader {
+    text-align: left;
+    font-size: 14px;
+    font-weight: lighter;
+    padding-left: 25px;
+    position: sticky;
+    top: 0;
+    background-color: hsl(220, 27%, 6%);
+    border-bottom: 0.5px solid rgb(73, 73, 73);
+}
+
+
+
+#dash-zugewiesen {
+    grid-row-start: 2;
+    grid-row-end: 13;
+    grid-column-start: 9;
+    grid-column-end: 14;
+    margin-bottom: 10px;
+    z-index: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
+.functionbar {
+    width: 95%;
+    margin: 0 auto;
+    border-radius: 13px;;
+    border: 0.5px solid rgb(73, 73, 73);
+    background-color: hsl(220, 27%, 6%);
+}
+
+.functionbar-wrapper {
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 10px;
+}
+
+#search {
+    color: rgb(126, 141, 154);
+    width: 800px;
+    height: 30px;
+    background-color: hsl(217, 27%, 13%);
+    border: 0.5px solid rgb(73, 73, 73);
+    border-radius: 8px;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+#filter {
+    color: rgb(126, 141, 154);
+    height: 30px;
+    background-color: hsl(217, 27%, 13%);
+    border: 0.5px solid rgb(73, 73, 73);
+    border-radius: 8px;
+}
+
+.table-wrapper {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.table {
+    display: block;
+    height: 500px;
+    background-color: hsl(220, 27%, 6%);
+    border-radius: 14px;
+    border: 0.5px solid rgb(73, 73, 73);
+    overflow: auto;
+
+}
+
+.table-header {
+    display: grid;  
+    grid-template-columns:  repeat(8, 1fr) 10px;
+    background-color: hsl(217, 27%, 13%);
+    justify-items: center;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.table-header h3{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.table-content {
+    display: grid;
+    grid-template-columns:  1fr;
+    grid-template-rows: auto;
+}
+
+.table-element {
+    height: 50px;
+    display: grid;
+    grid-template-columns:  repeat(8, 1fr) 10px;
+    column-gap: 10px;
+    justify-items: center;
+    align-items: center;
+    border-bottom: 0.5px solid rgb(73, 73, 73);
+    transition: all 0.2s ease-in;
+}
+
+.table-element:hover {
+    background-color:  rgb(44, 44, 67);
+}
+
+.table-element p{
+    font-size: 14px;
+    font-weight: lighter;
+}
+
+.auftrags-nummer p {
+    color: rgb(73, 73, 111);
+    font-size: 12px;
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.objekt {
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.datum, 
+.deadline {
+    color: rgb(73, 73, 111);
+    font-size: 14px;
+    font-weight: lighter;
+    font-style: italic;
+
+}
+
+.zugewiesen {
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    height: 25px;
+    padding: 1px 15px;
+}
+
+#andreas{
+
+    color: rgb(226, 122, 43);
+    background-color: rgba(226, 122, 43, 0.304);
+    border: 0.5px solid rgb(226, 122, 43);
+   
+}
+#jesus{
+
+    color: rgb(43, 226, 226);
+    background-color: rgb(43, 226, 226, 0.304);
+    border: 0.5px solid rgb(43, 226, 226);
+}
+
+#michaela{
+    color: rgb(165, 43, 226);
+    background-color:  rgb(165, 43, 226, 0.304);
+    border: 0.5px solid  rgb(165, 43, 226);
+}
+
+
+.option {
+    height: 50px;
+    width: 1fr;
+    display: flex;
+    align-content: center;
+   
+}
+.option-button-select {
+    width: 100%;
+}
+
+.option-button-delete {
+    position: relative;
+    left: 20px;
+    background-color: rgb(223, 67, 67);
+    transition: all 0.5s ease-in;
+    visibility: hidden;  
+}
+
+.option-button-delete:hover {
+    left: 0px;
+    width: 100%; 
+}
+
+
+
+.wichtig {
+    background-color: red;
+    box-shadow: 0 0 10px rgb(255, 0, 0);
+    border-radius: 14px;
+    height: 40px;
+    width: 5px;
+    margin-right: 5px;
+}
+
+.unwichtig {
+    background-color: rgb(98, 255, 84);
+    box-shadow: 0 0 10px rgb(98, 255, 84);
+    border-radius: 14px;
+    height: 40px;
+    width: 5px;
+    margin-right: 5px;
+}
+
+.mittel {
+    background-color: rgb(255, 249, 84);
+    box-shadow: 0 0 10px rgb(255, 249, 84);
+    border-radius: 14px;
+    height: 40px;
+    width: 5px;
+    margin-right: 5px;
+}
+
+.irgendwann {
+    background-color: rgb(52, 64, 71);
+    box-shadow: 0 0 10px rgb(52, 64, 71);
+    border-radius: 14px;
+    height: 40px;
+    width: 5px;
+    margin-right: 5px;
+}
+
+
+#wrapper {
+    visibility: visible;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 30;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.369);
+    backdrop-filter: blur(4px);
+}
+
+#modal {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 50px repeat(12,1fr);
+    top: 200px;
+    left: 575px;
+    height: 800px;
+    width: 1000px;
+    display: grid;
+    margin: 0 auto; 
+    padding: 25px;
+    background-color: hsl(220, 27%, 6%);
+    border-radius: 14px;;
+    border: 0.5px solid rgb(73, 73, 73);
+    z-index: 20;
+}
+
+#modal-title {
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-end: 1;
+    grid-row-start: 2;
+}
+
+#objekt-selection {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-end: 2;
+    grid-row-start: 3;
+
+}
+
+#objekt-selection input{
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 320px;
+    height: 10px;
+    color: rgb(194, 214, 231);
+    background-color: hsl(220, 27%, 6%);
+    border-radius: 8px;
+    border: 0.5px solid rgb(73, 73, 73);
+}
+
+#zuweisungs-selector {
+    grid-column-start: 7;
+    grid-column-end: 14;
+    grid-row-end: 2;
+    grid-row-start: 6;
+
+}
+
+#zuweisungs-selector label {
+    cursor: pointer;
+    position: relative;
+}
+
+#zuweisungs-selector label + label {
+    margin-left: 15px;
+}
+
+#zuweisungs-selector input[type=radio] {
+    opacity: 0;
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    align-self: center;
+}
+
+#zuweisungs-selector input[type=radio] + span {
+    font-size: 30px;
+    border-radius: 100px;
+    background-color: white;
+    border: 3px solid white;
+	padding: 12px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+}
+
+#zuweisungs-selector input[type=radio]:checked + span {
+    border-color: orangered;
+}
+
+#zuweisungs-selector input[type=radio]:focus + span {
+    color: #fff;
+
+}
+
+
+
+
+
+#prio-div  select{
+    margin-bottom: 10px;
+    width: 340px;
+    height: 30px;
+    color: rgb(194, 214, 231);
+    background-color: hsl(220, 27%, 6%);
+    border-radius: 8px;
+    border: 0.5px solid rgb(73, 73, 73);
+}
+
+#info-area {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 1;
+    grid-column-end: 14;
+    grid-row-end: 7;
+    grid-row-start: 12;
+
+}
+
+#info-area input {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 600px;
+    height: 25px;
+    color: rgb(194, 214, 231);
+    background-color: hsl(220, 27%, 6%);
+    border-radius: 8px;
+    border: 0.5px solid rgb(73, 73, 73);
+}
+
+#info-area textarea {
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    width: 98%;
+    height: 200px;
+    font-family: Arial, Helvetica, sans-serif   ;
+    color: rgb(194, 214, 231);
+    background-color: hsl(220, 27%, 6%);
+    border-radius: 14px;
+    border: 0.5px solid rgb(73, 73, 73);
+}
+
+#prio-div {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-end: 3;
+    grid-row-start: 4;
+
+}
+
+#deadline-slector {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-end: 4;
+    grid-row-start: 5;
+
+}
+
+#deadline-slector  input {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 320px;
+    height: 10px;
+    color: rgb(194, 214, 231);
+    background-color: hsl(220, 27%, 6%);
+    border-radius: 8px;
+    border: 0.5px solid rgb(73, 73, 73);
+}
+
+
+
+#upload {
+    grid-column-start: 1;
+    grid-column-end: 6;
+    grid-row-end: 5;
+    grid-row-start: 6;
+
+}
+
+#action-btn {
+    grid-column-start: 1;
+    grid-column-end: 14;
+    grid-row-end: 13;
+    grid-row-start: 14;
+    justify-self: flex-end;
+
+}
+
+
+#send-mail-div {
+    grid-column-start: 13;
+    grid-column-end: 14;
+    grid-row-end: 12;
+    grid-row-start: 13;
+}
+
+
