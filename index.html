@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="assets/img/GHV-Favicon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <title>Faster</title>
+
+</head>
+<body>
+
+<!-------- 0. MODAL ------------>
+
+<div id="wrapper">
+
+    <div id="modal">
+    
+    <h3  id="modal-title">Neuen Auftrag anlegen</h3>
+
+    <div id="objekt-selection">
+        <label for="objekt">Objekt auswählen</label>
+        <br>
+        <br>
+        <input list="objekt" name="objekt" id="objekt-input">
+        <datalist name="objekt" id="objekt">
+            <option value="620-Taufkirchen">Schlesierstr.8 - 16, Taufkirchen</option>
+            <option value="707 - Berlin">Yorkstr.90, Berlin</option>
+            <option value="350 - Glonn">Kuglefeldstr.23, Glonn</option>
+            <option value="400 - Glonn">Adling 12, Glonn</option>
+            <option value="505 - Glonn">Wolfgang-Wagner-Str.4, Glonn</option>
+            <option value="510 - Glonn">Ortsmitte Nord, Glonn</option>
+            <option value="530 - Garching">Gutenberg-Center, Garching</option>
+            <option value="570 - Erding">Kastaninenhof, Erding</option>
+            <option value="601 - ??">Hofangerstr.42 - 45, ?? </option>
+            <option value="605 - ??">Haidelweg 50/52</option>
+            <option value="610 - Unterhaching">Katharinenstr.1 & 2, Unterhaching</option>
+        </datalist>
+    </div>
+
+    <div id="zuweisungs-selector">
+        
+        <label for="mitarbeiter" class="hidden-radio">
+            <input type="radio" name="mitarbeiter" id="mitarbeiter-checker-andreas" checked>
+            <span>🧔🏻‍♂️</span>
+        </label>
+        
+        <label for="mitarbeiter" class="hidden-radio">
+            <input type="radio" name="mitarbeiter" id="mitarbeiter-checker-michaela" >
+            <span>👩🏼</span>
+        </label>
+        
+        <label for="mitarbeiter" class="hidden-radio">
+            <input type="radio" name="mitarbeiter" id="mitarbeiter-checker-jesus" >
+            <span>🧔🏽‍♂️</span>
+        </label>
+
+
+    </div>
+
+    <div id="info-area">
+        <input type="text" placeholder="Title" id="title-input">
+        <br>
+        <textarea name="info-text-area" id="info-text-area" cols="30" rows="10" placeholder="Info"></textarea>
+    </div>
+
+    <div id="deadline-slector">
+        <label for="deadline">Deadline</label>
+        <br>
+        <input type="date" name="" id="deadline">
+    </div>
+
+    <div id="prio-div">
+        <label for="prioritaet">Priorität</label>
+        <br>
+        <select name="prioritaet" id="prioritaet">
+            <option value="wichtig">💥Hoch💥</option>
+            <option value="mittle">🐝Moderat🐝</option>
+            <option value="unwichtig">🌴Niedrig🌴</option>
+            <option value="irgendwann">🐨Keine🐨</option>
+        </select>
+    </div>
+
+    <div id="upload">
+        <label for="">Dokumente hochladen</label>
+        <br>
+        <input type="file" name="upload-input" id="upload-input">
+    </div>
+
+    <div id="send-mail-div">
+        <label for="send-mail">📨 Email-Verschicken</label>
+        <input type="radio" name="send-mail" id="send-mail">
+    </div>
+
+    <div id="action-btn">
+        <button class="btn primary-btn" onclick="neuerAuftrag()">Anlegen</button>
+        <button class="btn secondary-btn" onclick="modalSchliessen()">Abbrechen</button>
+    </div>
+
+    
+    </div>
+
+    
+</div>
+
+
+<!--------1. NAVIGATION------------>
+
+<div class="navigation">
+
+    <img src="assets/img/Logo_Redesign.png" alt="GHV logo">
+
+</div>
+
+
+<!--------NAVIGATION END------------>
+
+<br>
+
+<!-------- 2 . DASHBOARD ------------>
+
+ <div id="dashboard">
+
+   <div id="dash-header">
+
+        <h3>Andreas Aufträge</h3>
+   
+   </div>
+
+
+   <div id="dash-heute">
+
+       
+    <div class="dash-subheader">
+        <p>Heute fällig</p>
+    </div>
+
+
+
+
+   <div>
+
+    </div>
+   </div>
+
+   <div class="trenner"></div>
+
+    <div id="dash-zugewiesen">
+        <div class="dash-subheader">
+             <p>Zuweisungen</p>
+        </div>
+    <div>
+
+    </div>
+ </div>
+  
+ </div>
+  
+
+<br><br><br>    
+
+
+
+<!-------- 3. FUNCTIONBAR ------------>
+ 
+    <div class="functionbar">
+
+        <div class="functionbar-wrapper">
+            <div>
+
+                <label for="filter">🗄️</label>
+
+                <select name="filter" id="filter">
+                     <option value="datum">Datum</option>
+                     <option value="prio">Prio</option>
+                     <option value="Mitarbeiter">Mitarbeiter</option>
+                     <option value="Mitarbeiter">Status</option>
+                     <option value="Mitarbeiter">Objekt</option>
+                     <option value="Mitarbeiter">Deadline</option>
+                </select>
+
+                <input type="search" name="search" id="search">
+            </div>
+
+        
+            <button class="btn primary-btn"     onclick="modalOeffnen()">Neu</button>
+
+       </div>
+
+    </div>
+
+    <br><br>
+
+
+    <!-------- 4. TABLE ------------>
+
+    <div class="table-wrapper">
+    
+      <div class="table">
+
+
+            <div class="table-header">
+
+                <div class="thelement">
+                    <h3>Auftrags-Nr.</h3>
+                </div>
+
+                <div class="thelement">
+                    <h3>Objekt</h3>
+                </div>
+
+                <div class="thelement">
+                    <h3>Title</h3>
+                </div>
+
+                <div class="thelement">
+                    <h3>Status</h3>
+                </div>
+
+                <div class="thelement">
+                    <h3>Angelegt</h3>
+                </div>
+
+                <div class="thelement">
+                    <h3>Deadline</h3>
+                </div>
+
+                <div class="thelement">
+                    <h3>Zugewiesen</h3>
+                </div>
+
+                <div class="thelement">
+                    <h3>Option</h3>
+                </div>
+
+            </div>
+
+
+
+    <div class="table-content" id="table-content">
+
+    <div class="table-element">
+
+        <div class="auftrags-nummer">
+            <p>001</p>
+        </div>
+
+        <div class="objekt">
+            <p>602 - TFK</p>
+        </div>
+
+        <div class="title">
+            <p>Garagen Tor</p>
+        </div>
+
+        <div class="trelement">
+            <p>✅</p>
+        </div>
+
+        <div class="datum">
+            <p>23.01.22</p>
+        </div>
+
+        <div class="deadline">
+            <p>28.01.24</p>
+        </div>
+
+        <div class="zugewiesen" id="andreas">
+            <p>A.S. 🧔🏻‍♂️</p>
+        </div>
+
+        <div class="trelement option">
+
+            <div class="option-button-select">
+                <span>...</span>
+            </div>
+
+            <div class="option-button-delete">
+                <span>X</span>
+            </div>
+        </div>
+
+        <div class="trelement mittel">
+        </div>
+
+    </div>
+
+</div>
+</div>
+</div>
+
+
+    
+
+
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>
