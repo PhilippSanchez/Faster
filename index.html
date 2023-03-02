@@ -9,7 +9,6 @@
 
     <link rel="stylesheet" href="style.css">
 
-
     <title>Faster</title>
 
 </head>
@@ -19,6 +18,9 @@
 
 <div id="wrapper">
 
+    <div id="modal-wrapper">
+
+ 
     <div id="modal">
     
     <h3  id="modal-title">Neuen Auftrag anlegen</h3>
@@ -27,7 +29,7 @@
         <label for="objekt">Objekt auswählen</label>
         <br>
         <br>
-        <input list="objekt" name="objekt" id="objekt-input">
+        <input list="objekt" name="objekt" id="objekt-input" placeholder="Objekt">
         <datalist name="objekt" id="objekt">
             <option value="620-Taufkirchen">Schlesierstr.8 - 16, Taufkirchen</option>
             <option value="707 - Berlin">Yorkstr.90, Berlin</option>
@@ -48,16 +50,20 @@
         <label for="mitarbeiter" class="hidden-radio">
             <input type="radio" name="mitarbeiter" id="mitarbeiter-checker-andreas" checked>
             <span>🧔🏻‍♂️</span>
+            <p>Andreas</p>
         </label>
         
         <label for="mitarbeiter" class="hidden-radio">
             <input type="radio" name="mitarbeiter" id="mitarbeiter-checker-michaela" >
             <span>👩🏼</span>
+            <p>Michaela</p>
         </label>
         
         <label for="mitarbeiter" class="hidden-radio">
             <input type="radio" name="mitarbeiter" id="mitarbeiter-checker-jesus" >
             <span>🧔🏽‍♂️</span>
+            <br>
+            <p>Jesus</p>
         </label>
 
 
@@ -92,10 +98,16 @@
         <input type="file" name="upload-input" id="upload-input">
     </div>
 
-    <div id="send-mail-div">
-        <label for="send-mail">📨 Email-Verschicken</label>
-        <input type="radio" name="send-mail" id="send-mail">
+        
+    <div id="toggle-slider-container">
+        <label>📨</label>
+        <label class="switch">
+            <input type="checkbox"  id="send-mail">
+            <span class="toggle"></span>
+        </label>   
     </div>
+
+
 
     <div id="action-btn">
         <button class="btn primary-btn" onclick="neuerAuftrag()">Anlegen</button>
@@ -108,6 +120,7 @@
     
 </div>
 
+</div>
 
 <!--------1. NAVIGATION------------>
 
@@ -137,8 +150,10 @@
 
        
     <div class="dash-subheader">
-        <p>Heute fällig</p>
+        <p>Heute fällig - <button id="refresh-btn" onclick="fetchFaelligkeit()">🔄</button></p>
+        
     </div>
+    
 
 
 
@@ -184,7 +199,7 @@
                      <option value="Mitarbeiter">Deadline</option>
                 </select>
 
-                <input type="search" name="search" id="search">
+                <input type="search" name="search" id="search" >
             </div>
 
         
@@ -255,7 +270,7 @@
         </div>
 
         <div class="title">
-            <p>Garagen Tor</p>
+            <a href="youtube.com">Garagen Tor 🔍</a>
         </div>
 
         <div class="trelement">
@@ -276,13 +291,9 @@
 
         <div class="trelement option">
 
-            <div class="option-button-select">
-                <span>...</span>
-            </div>
+            <span class="option-btn">...</span>
+            <span class="delete-btn" onclick="deleteRow(this)">x</span>  
 
-            <div class="option-button-delete">
-                <span>X</span>
-            </div>
         </div>
 
         <div class="trelement mittel">
@@ -297,6 +308,7 @@
 
     
 
+     
 
 
     <script src="script.js"></script>

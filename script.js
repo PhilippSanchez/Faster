@@ -58,6 +58,8 @@ const createHtml = () => {
     let title = document.getElementById('title-input').value;
     console.log(title)
 
+    let link = "www.youtube.com"
+
     let text = document.getElementById('info-text-area').value;
 
 
@@ -115,7 +117,7 @@ const createHtml = () => {
     </div>
 
     <div class="title">
-        <p>${title}</p>
+        <a href="${link}">${title}</a>
     </div>
 
     <div class="trelement">
@@ -136,13 +138,9 @@ const createHtml = () => {
 
     <div class="trelement option">
 
-        <div class="option-button-select">
-            <span>...</span>
-        </div>
+        <span class="option-btn">...</span>
+        <span class="delete-btn" onclick="deleteRow(this)">x</span>  
 
-        <div class="option-button-delete">
-            <span>X</span>
-        </div>
     </div>
 
     <div class="trelement ${prio}">
@@ -170,9 +168,9 @@ const resetModal = () => {
     document.getElementById('objekt-input').value = "";
     document.getElementById('title-input').value = "";
     document.getElementById('deadline').value = "";
-    document.getElementById('prioritaet').value = "";
+    document.getElementById('prioritaet').value = "wichtig";
     document.getElementById('send-mail').checked = false;
-    document.getElementById('mitarbeiter-checker-andreas').checked = false;
+    document.getElementById('mitarbeiter-checker-andreas').checked = true;
     document.getElementById('mitarbeiter-checker-jesus').checked = false;
     document.getElementById('mitarbeiter-checker-michaela').checked = false;
 }
@@ -182,6 +180,7 @@ const neuerAuftrag = () => {
 
     const element = createHtml();
     einfügen(element);
+    // neueSeite anlegen
     modalSchliessen();
     resetModal()
 
@@ -193,8 +192,84 @@ const neuerAuftrag = () => {
 
 /*DELETE*/
 
+let deleteRow = (row) => {
+    if (confirm("Sind Sie sicher das Sie diesen Auftrag dauerhaft löschen möchten?")) {
+
+        row.parentElement.parentElement.remove()
+
+        setTimeout(() => {alert("Auftrag wurde erfolgreich gelöscht")}, "200");
+       
+
+    } else {
+        alert("Auftrag abgebrochen")
+    }
+}
+
+
+/*SEARCH*/
+
+var searchInput = document.getElementById("search");
+
+searchInput.addEventListener( "keypress", function(e) {
+    if (e.key === "Enter") {
+        alert(`Du suchst nach Folgenden Einträgen "${searchInput.value}"`); 
+}
+});
+
+
 /*FILTER*/
 
 const filter = () => {
     
 }
+
+const filterSelection = (option) => {
+        
+}
+
+
+
+
+/*FÄLLIGKEIT UND BENACHRICHTIGUNG*/
+
+let clearFaelligkeiten = () => {
+
+    
+
+
+}
+
+let fetchFaelligkeit = () => {
+
+    let content = document.getElementById("dash-heute");
+    let toclear = content.querySelectorAll(".deadline");
+    
+    if(toclear !== null) {
+   
+        for(let i = 0; i < toclear.length; i++){
+            toclear[i].parentElement.remove();
+        }
+        
+    }
+   
+    let todos = document.querySelectorAll(".deadline");
+    let date = new Date();
+    
+    date = (`${date.getFullYear()}-0${date.getMonth()+1}-0${date.getDay()-2}`)
+    
+    for(let i = 0; i < todos.length; i++){
+   
+    
+        if(date === todos[i].innerText){
+
+            let element = todos[i].parentElement;
+            let newElement = element.cloneNode(true);
+            document.getElementById("dash-heute").append(newElement);
+        }
+    }
+    
+}
+
+window.onload = fetchFaelligkeit();
+
+
